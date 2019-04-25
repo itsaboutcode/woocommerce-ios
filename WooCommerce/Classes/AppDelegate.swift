@@ -6,6 +6,7 @@ import CocoaLumberjack
 import WordPressUI
 import WordPressKit
 import WordPressAuthenticator
+import WordPressShared
 
 
 // MARK: - Woo's App Delegate!

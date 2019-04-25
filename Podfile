@@ -1,5 +1,6 @@
 inhibit_all_warnings!
-use_frameworks!
+use_frameworks! # Defaulting to use_frameworks! See pre_install hook below for static linking.
+use_modular_headers!
 
 platform :ios, '11.0'
 workspace 'WooCommerce.xcworkspace'
@@ -24,12 +25,11 @@ target 'WooCommerce' do
   pod 'Gridicons', '~> 0.18'
   
   # To allow pod to pick up beta versions use -beta. E.g., 1.1.7-beta.1
-  #pod 'WordPressAuthenticator', :git => 'https://github.com/wordpress-mobile/WordPressAuthenticator-iOS.git', :branch => 'task/wc-support-site-url-login'
-  pod 'WordPressAuthenticator', '~> 1.3.0'
+  pod 'WordPressAuthenticator', :git => 'git@github.com:wordpress-mobile/WordPressAuthenticator-iOS.git', :branch => 'static-framework'
 
-  pod 'WordPressShared', '~> 1.1'
-  pod 'WordPressUI', '~> 1.2'
-
+  pod 'WordPressShared', :git => 'git@github.com:wordpress-mobile/WordPress-iOS-Shared.git', :branch => 'static-framework'
+  pod 'WordPressUI', :git => 'git@github.com:wordpress-mobile/WordPressUI-iOS.git', :branch => 'static-framework'
+  pod 'WordPressKit', :git => 'git@github.com:wordpress-mobile/WordPressKit-iOS.git', :branch => 'static-framework'
 
   # External Libraries
   # ==================
@@ -125,6 +125,21 @@ end
 target 'StorageTests' do
   project 'Storage/Storage.xcodeproj'
   storage_pods
+end
+
+# Static Frameworks:
+# ============
+#
+# Make all pods that are not shared across multiple targets into static frameworks by overriding the static_framework? function to return true
+# Linking the shared frameworks statically would lead to duplicate symbols
+# A future version of CocoaPods may make this easier to do. See https://github.com/CocoaPods/CocoaPods/issues/7428
+pre_install do |installer|
+  installer.pod_targets.each do |pod|
+    next if pod.target_definitions.length > 1
+    def pod.static_framework?;
+      true
+    end
+  end
 end
 
 # Workarounds:

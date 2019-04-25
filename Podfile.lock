@@ -69,7 +69,7 @@ PODS:
     - UIDeviceIdentifier (~> 1.1.4)
     - WordPressShared (~> 1.4)
     - wpxmlrpc (= 0.8.4)
-  - WordPressShared (1.7.2):
+  - WordPressShared (1.7.5-beta.1):
     - CocoaLumberjack (~> 3.4)
     - FormatterKit/TimeIntervalFormatter (= 1.8.2)
   - WordPressUI (1.2.0)
@@ -94,9 +94,10 @@ DEPENDENCIES:
   - Crashlytics (~> 3.10)
   - Gridicons (~> 0.18)
   - KeychainAccess (~> 3.1)
-  - WordPressAuthenticator (~> 1.3.0)
-  - WordPressShared (~> 1.1)
-  - WordPressUI (~> 1.2)
+  - "WordPressAuthenticator (from `git@github.com:wordpress-mobile/WordPressAuthenticator-iOS.git`, branch `static-framework`)"
+  - "WordPressKit (from `git@github.com:wordpress-mobile/WordPressKit-iOS.git`, branch `static-framework`)"
+  - "WordPressShared (from `git@github.com:wordpress-mobile/WordPress-iOS-Shared.git`, branch `static-framework`)"
+  - "WordPressUI (from `git@github.com:wordpress-mobile/WordPressUI-iOS.git`, branch `static-framework`)"
   - XLPagerTabStrip (~> 8.1)
   - ZendeskSDK (~> 2.3.1)
 
@@ -122,13 +123,37 @@ SPEC REPOS:
     - Reachability
     - SVProgressHUD
     - UIDeviceIdentifier
-    - WordPressAuthenticator
-    - WordPressKit
-    - WordPressShared
-    - WordPressUI
     - wpxmlrpc
     - XLPagerTabStrip
     - ZendeskSDK
+
+EXTERNAL SOURCES:
+  WordPressAuthenticator:
+    :branch: static-framework
+    :git: "git@github.com:wordpress-mobile/WordPressAuthenticator-iOS.git"
+  WordPressKit:
+    :branch: static-framework
+    :git: "git@github.com:wordpress-mobile/WordPressKit-iOS.git"
+  WordPressShared:
+    :branch: static-framework
+    :git: "git@github.com:wordpress-mobile/WordPress-iOS-Shared.git"
+  WordPressUI:
+    :branch: static-framework
+    :git: "git@github.com:wordpress-mobile/WordPressUI-iOS.git"
+
+CHECKOUT OPTIONS:
+  WordPressAuthenticator:
+    :commit: a26a8684e3fa19ae0a335611e791ba8f0003aa98
+    :git: "git@github.com:wordpress-mobile/WordPressAuthenticator-iOS.git"
+  WordPressKit:
+    :commit: 0f846c1a3342a173bacf709080ae1ac8c52c8a7b
+    :git: "git@github.com:wordpress-mobile/WordPressKit-iOS.git"
+  WordPressShared:
+    :commit: fe33db7e73474bf2246df338f31ac09cea23ab39
+    :git: "git@github.com:wordpress-mobile/WordPress-iOS-Shared.git"
+  WordPressUI:
+    :commit: 34ff4e06289882df9df3090aa5934f2bb470c593
+    :git: "git@github.com:wordpress-mobile/WordPressUI-iOS.git"
 
 SPEC CHECKSUMS:
   1PasswordExtension: 0e95bdea64ec8ff2f4f693be5467a09fac42a83d
@@ -153,12 +178,12 @@ SPEC CHECKSUMS:
   UIDeviceIdentifier: 8f8a24b257a4d978c8d40ad1e7355b944ffbfa8c
   WordPressAuthenticator: b14ec6a2ddfe65bc2abd1c517ef7ec86aaa9d0f5
   WordPressKit: 61a83ade68516f1398176b80c199489af0e83303
-  WordPressShared: 63d57a4a07ad9f9a1ee5e8a7162e48fbb5192014
-  WordPressUI: 44fe43a9c5c504dfd534286e39e1ce6ebcd69ff5
+  WordPressShared: 9564315602bd369ce434b882499551668d81cba8
+  WordPressUI: 3d8e8b2ec2978bdfac8a0f2a16445ce4e591d781
   wpxmlrpc: 6ba55c773cfa27083ae4a2173e69b19f46da98e2
   XLPagerTabStrip: 63166e21c9844fa30f2d95d30f335e73be5caf22
   ZendeskSDK: cbd49d65efb2f2cdbdcaac84e618896ae87b861e
 
-PODFILE CHECKSUM: 8482e446d484a2387701a07c9133b984eeccf393
+PODFILE CHECKSUM: 310ec3eea26fed0f872f9c51be945a383432fed5
 
 COCOAPODS: 1.6.1
